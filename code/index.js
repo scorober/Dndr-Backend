@@ -33,9 +33,8 @@ app.get("/hello", (req, res) => {
 app.post("/hello", (req, res) => {
     res.send({
         message: "Hello, you sent a POST request"
-    });
-});
-
+    })
+})
 /*
  * Return HTML for the / end point. 
  * This is a nice location to document your web service API
@@ -51,6 +50,25 @@ app.get("/", (req, res) => {
     res.end(); //end the response
 });
 
+app.get("/params", (req, res) => {
+    res.send({
+        message: "Hello " + req.query['name'] + "!"
+    });
+});
+
+app.post("/params", (req, res) => {
+    res.send({
+        message: "Hello, " + req.body['name'] + "! You sent a POST Request"
+    });
+});
+
+app.get("/wait", (req, res) => {
+    setTimout( () => {
+        res.send({
+            message: "Thanks for waiting"
+        });
+    }, 1000);
+});
 /* 
 * Heroku will assign a port you can use via the 'PORT' environment variable
 * To accesss an environment variable, use process.env.<ENV>
