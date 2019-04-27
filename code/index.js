@@ -46,7 +46,7 @@ app.get("/", (req, res) => {
 
 
 
-app.post("/addcourse", (req, res) => {
+app.post('/addcourse', (req, res) => {
     // Parameters for the courses.
     let id = req.body['id'];
     let shortdesc = req.body['shortdesc'];
@@ -77,7 +77,7 @@ app.post("/addcourse", (req, res) => {
     }
 });
 
-app.get("/courses", (req, res) => {
+app.get('/courses', (req, res) => {
 
     db.manyOrNone('SELECT * FROM courses')
     //If successful, run function passed into .then()
