@@ -3,11 +3,15 @@ const express = require('express');
 //Create a new instance of express
 const app = express();
 
+app.use('/login', require('./routes/login.js'));
 app.use('/register', require('./routes/register.js'));
 app.use('/hello', require('./routes/hello.js'));
 app.use('/params', require('./routes/params.js'));
 app.use('/wait', require('./routes/wait.js'));
 app.use('/', require('./routes/coursessql.js'));
+
+let middleware = require('./utilities/middleware');
+
 
 const bodyParser = require("body-parser");
 //This allows parsing of the body of POST requests, that are encoded in JSON
